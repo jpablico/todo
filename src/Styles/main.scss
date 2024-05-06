@@ -1,0 +1,19 @@
+@import 'global.scss';
+@import 'mixins.scss';
+@import 'variables.scss';
+@import 'login.scss';
+
+.header__userAccount {
+
+	.header__userAccount__user {
+		align-items: center;
+
+		// User icon
+		.userAccount__profile__picture {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			margin-right: 10px;
+		}
+	}
+}
