@@ -6,7 +6,7 @@ module.exports = {
     mode: 'development',
     entry: {
         main: './src/Scripts/index.js',
-        style: './src/Styles/main.scss'
+        style: './src/Styles/style.scss'
     },
     output: {
         filename: '[name].js',
@@ -29,5 +29,6 @@ module.exports = {
             filename: '[name].css',
         }),
         new IgnoreEmitPlugin(['style.js']), // Ignore the extra JavaScript file
+        new IgnoreEmitPlugin(['style.css']), // Ignore the extra CSS map file
     ],
 };
