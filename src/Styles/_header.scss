@@ -94,13 +94,41 @@
 		}
 
 		.label-form {
-			
+			display: none;
+
 			.label-addition-form {
 				@include flex(column, center, center);
 
 				.label-name {
 					width: 100%;
 					border: none;
+				}
+			}
+		}
+
+		.user-label-list {
+			@include flex(column, flex-start, flex-start);
+			gap: 5px;
+			width: 100%;
+			.label-item {
+				@include flex(row, space-between, center);
+				gap: 5px;
+				width: 100%;
+				height: 26px;
+				border-radius: 5px;
+				cursor: pointer;
+
+				.label-icon {
+					font-size: 14px;
+				}
+
+				.label-text {
+					@include text-size(14px);
+					font-weight: 500;
+				}
+
+				&:hover {
+					color: $accent-color;
 				}
 			}
 		}
