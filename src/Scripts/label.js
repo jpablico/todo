@@ -8,12 +8,12 @@ labelAddition.addEventListener('click', (e) => {
 	labelAddition.forEach(el => {
 		el.style.display = "none"
 	})
-};
+});
 
 const toggleElements = document.querySelectorAll('.toggle');
 toggleElements.forEach(el => {
 	el.addEventListener('click', () => {
-		this.classList.toggle('active'); // `this` refers to `Window`
+		el.classList.toggle('active'); // `this` refers to `Window`
 		
 	});
 });
