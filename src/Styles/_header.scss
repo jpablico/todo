@@ -9,7 +9,6 @@
 	height: 100vh;
 	padding: 1rem;
 	background-color: $background-color;
-	color: #000000;
 
 	.user-container {
 		@include flex(row, flex-start, center);
@@ -90,12 +89,20 @@
 			}
 			.label-add {
 				font-size: 14px;
+
+				&:hover {
+					color: $accent-color;
+				}
 			}
 		}
 
 		.label-form {
 			display: none;
 
+			&.active {
+				display: block;
+			}
+			
 			.label-addition-form {
 				@include flex(column, center, center);
 
@@ -120,15 +127,20 @@
 
 				.label-icon {
 					font-size: 14px;
+
+					&:hover {
+						color: $error-color;
+					}
 				}
+				
 
 				.label-text {
 					@include text-size(14px);
 					font-weight: 500;
-				}
 
-				&:hover {
-					color: $accent-color;
+					&:hover {
+						color: $accent-color;
+					}
 				}
 			}
 		}

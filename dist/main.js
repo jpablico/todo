@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src_Styles_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../src/Styles/style.scss */ \"./src/Styles/style.scss\");\n\n\nconst labelAddition = document.getElementsByClassName('labels-addition')[0];\nconst labelForm = document.getElementsByClassName('label-form')[0];\n\nlabelAddition.addEventListener('click', (e) => {\n  labelAddition.forEach(el => {\n    el.style.display = \"none\"\n  })\n});\n\nconst toggleElements = document.querySelectorAll('.toggle');\ntoggleElements.forEach(el => {\n  el.addEventListener('click', () => {\n    undefined.classList.toggle('active'); // `this` refers to `Window`\n    \n  });\n});\n\n//# sourceURL=webpack://To-Do-List-App/./src/Scripts/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src_Styles_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../src/Styles/style.scss */ \"./src/Styles/style.scss\");\n\n\nconst addLabel = document.querySelector('.label-add');\n\naddLabel.addEventListener('click', () => {\n  console.log('Add button clicked');\n});\n\n//# sourceURL=webpack://To-Do-List-App/./src/Scripts/index.js?");
 
 /***/ })
 
