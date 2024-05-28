@@ -44,7 +44,6 @@
 	
 		}
 	}
-	
 
 	.nav-container {
 		.nav-list {
@@ -81,6 +80,7 @@
 
 	.user-labels {
 		width: 100%;
+
 		.labels-addition {
 			@include flex (row, space-between, center);
 
