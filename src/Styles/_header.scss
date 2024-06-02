@@ -95,28 +95,11 @@
 				}
 			}
 		}
-
-		.label-form {
-			display: none;
-
-			&.active {
-				display: block;
-			}
-			
-			.label-addition-form {
-				@include flex(column, center, center);
-
-				.label-name {
-					width: 100%;
-					border: none;
-				}
-			}
-		}
-
 		.user-label-list {
 			@include flex(column, flex-start, flex-start);
 			gap: 5px;
 			width: 100%;
+
 			.label-item {
 				@include flex(row, space-between, center);
 				gap: 5px;
@@ -133,7 +116,6 @@
 					}
 				}
 				
-
 				.label-text {
 					@include text-size(14px);
 					font-weight: 500;

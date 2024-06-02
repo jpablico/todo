@@ -113,22 +113,6 @@ body {
 .header-container .user-labels .labels-addition .label-add:hover {
   color: #815bd8;
 }
-.header-container .user-labels .label-form {
-  display: none;
-}
-.header-container .user-labels .label-form.active {
-  display: block;
-}
-.header-container .user-labels .label-form .label-addition-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.header-container .user-labels .label-form .label-addition-form .label-name {
-  width: 100%;
-  border: none;
-}
 .header-container .user-labels .user-label-list {
   display: flex;
   flex-direction: column;

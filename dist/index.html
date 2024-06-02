@@ -20,8 +20,6 @@
 					<h1 class="tag-text">Add task</h1>
 				</div>
 			</div>
-
-
 			<nav class="nav-container">
 				<ul class="nav-list">
 					<li class="nav-item">
@@ -46,17 +44,9 @@
 			<nav class="user-labels">
 				<div class="labels-addition">
 					<h6 class="label-title">Your labels</h6>
-					<span class="material-symbols-outlined label-add">add</span>
+					<span class="material-symbols-outlined label-add" id="showDialogButton">add</span>
 				</div>
-				<div class="label-form .toggle">
-					<form class="label-addition-form">
-						<input type="text" name="label" class="label-name"  id="label" placeholder="label name">
-						<div class="label-buttons">
-							<button type="button">Cancel</button>
-							<button type="submit">Add</button>
-						</div>
-					</form>
-				</div>
+					
 				<ul class="user-label-list">
 					<li class="label-item">
 						<h1 class="label-text">Test</h1>
@@ -65,8 +55,21 @@
 				</ul>
 			</nav>
 		</header>
+
 		<main class="main-container">
 
 		</main>
+
+		<!-- Dialog for adding labels -->
+		<dialog class="label-form toggle dialog" id="myDialog">
+			<form class="label-addition-form">
+				<input type="text" name="label" class="label-name"  id="label" placeholder="label name">
+				<div class="label-buttons">
+					<button type="button" id="label-cancel">Cancel</button>
+					<button type="submit" id="label-submit">Add</button>
+				</div>
+			</form>
+		</dialog>
+
 	</body>
 </html>
