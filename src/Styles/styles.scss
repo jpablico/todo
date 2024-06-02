@@ -37,7 +37,27 @@ $font-size-small: 14px;
   }
 
   body {
-	@include flex(row, center, flex-start);
+	@include flex(column, center, flex-start);
 	background-color: $background-color-main;
 	color: $font-color;
   }
+
+  .Task.low {
+    background-color: green;
+}
+
+.Task.medium {
+    background-color: yellow;
+}
+
+.Task.high {
+    background-color: red;
+}
+
+.Task.completed {
+    text-decoration: line-through;
+}
+
+#completed-tasks-container {
+    background-color: #f0f0f0;
+}

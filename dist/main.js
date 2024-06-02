@@ -7,73 +7,26 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
-
-/***/ "./src/Styles/style.scss":
-/*!*******************************!*\
-  !*** ./src/Styles/style.scss ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://To-Do-List-App/./src/Styles/style.scss?");
-
-/***/ }),
 
 /***/ "./src/Scripts/index.js":
 /*!******************************!*\
   !*** ./src/Scripts/index.js ***!
   \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src_Styles_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../src/Styles/style.scss */ \"./src/Styles/style.scss\");\n\n\n\nconst labelAdd = document.querySelector('.label-add');\nconst labelFormText = document.querySelector('.label-name');\nconst labelCancel = document.querySelector('#label-cancel');\nconst labelSubmit = document.querySelector('#label-submit');\n\nlabelAdd.addEventListener('click', showDialogModal);\nlabelCancel.addEventListener('click', closeDialogModal);\nlabelSubmit.addEventListener('click', closeDialogModal);\n\nfunction showDialogModal() {\n  const dialog = document.querySelector('.dialog');\n  dialog.showModal();\n}\n\nfunction closeDialogModal() {\n  const dialog = document.querySelector('.dialog');\n  dialog.close();\n}\nlet allTasks = [];\n\nconst addTask = (task) => {\n  allTasks.push(task);\n}\n\n\n\n\nconst addLabel = document.querySelector('.label-add');\n\naddLabel.addEventListener('click', () => {\n  console.log('Add button clicked');\n});\n\ndocument.addEventListener('DOMContentLoaded', function() {\n  const dialog = document.getElementById('myDialog');\n  if (dialog) {\n      // Assuming you have a button to show the dialog\n      const showDialogButton = document.getElementById('showDialogButton');\n      showDialogButton.addEventListener('click', function() {\n          dialog.showModal();\n      });\n  } else {\n      console.error('Dialog element not found');\n  }\n});\n\n\n//# sourceURL=webpack://To-Do-List-App/./src/Scripts/index.js?");
+eval("document.addEventListener('DOMContentLoaded', (event) => {\n  const taskListContainer = document.getElementById('Labels');\n  const addTaskDialog = document.getElementById('Add-Task-Dialog');\n  const taskNameInput = document.getElementById('Task-Name');\n  const taskDescriptionInput = document.getElementById('Task-Description');\n  const submitTaskButton = document.getElementById('Submit-Task');\n  const addTaskButton = document.getElementById('Add-Task');\n\n  let taskIdCounter = 0;\n  const tasks = [];\n\n  addTaskButton.addEventListener('click', showDialog);\n  submitTaskButton.addEventListener('click', addTaskToList);\n\n  function showDialog() {\n      addTaskDialog.showModal();\n  }\n\n  function addTaskToList(event) {\n      event.preventDefault();\n      const task = createTask(taskNameInput.value, taskDescriptionInput.value, taskIdCounter);\n      tasks.push({\n          id: taskIdCounter,\n          name: taskNameInput.value,\n          description: taskDescriptionInput.value\n      });\n      taskIdCounter++;\n      taskListContainer.appendChild(task);\n      addTaskDialog.close();\n      clearInputFields();\n  }\n\n  function createTask(name, description, id) {\n      const task = document.createElement('div');\n      task.className = 'Task';\n      task.id = `task-${id}`;\n      task.innerHTML = `\n          <h3>${name}</h3>\n          <p>${description}</p>\n          <span class=\"material-icons\" onclick=\"removeTask(${id})\">delete</span>\n      `;\n      return task;\n  }\n\n  window.removeTask = function(id) {\n      // Remove task from array\n      const taskIndex = tasks.findIndex(task => task.id === id);\n      tasks.splice(taskIndex, 1);\n\n      // Update task list\n      updateTaskList();\n  }\n\n  function updateTaskList() {\n      // Clear current task list\n      taskListContainer.innerHTML = '';\n\n      // Add each task in the array to the DOM\n      tasks.forEach(task => {\n          const taskElement = createTask(task.name, task.description, task.id);\n          taskListContainer.appendChild(taskElement);\n      });\n  }\n\n  function clearInputFields() {\n      taskNameInput.value = '';\n      taskDescriptionInput.value = '';\n  }\n});\n\nlet tasks = [];\nlet completedTasks = [];\nlet taskIdCounter = 0;\n\nlet taskListContainer = document.getElementById('task-list-container');\nlet completedTasksContainer = document.getElementById('completed-tasks-container');\nlet taskNameInput = document.getElementById('task-name-input');\nlet taskDescriptionInput = document.getElementById('task-description-input');\n\nwindow.addEventListener('DOMContentLoaded', (event) => {\n    const savedTasks = localStorage.getItem('tasks');\n    const savedCompletedTasks = localStorage.getItem('completedTasks');\n    if (savedTasks) {\n        tasks = JSON.parse(savedTasks);\n    }\n    if (savedCompletedTasks) {\n        completedTasks = JSON.parse(savedCompletedTasks);\n    }\n    updateTaskList();\n});\n\nfunction addTaskToList(event) {\n    event.preventDefault();\n    const task = createTask(taskNameInput.value, taskDescriptionInput.value, taskIdCounter, false);\n    tasks.push({\n        id: taskIdCounter,\n        name: taskNameInput.value,\n        description: taskDescriptionInput.value,\n        completed: false\n    });\n    taskIdCounter++;\n\n    localStorage.setItem('tasks', JSON.stringify(tasks));\n\n    updateTaskList();\n    clearInputFields();\n}\n\nfunction createTask(name, description, id, completed) {\n    const task = document.createElement('div');\n    task.className = `Task ${completed ? 'completed' : ''}`;\n    task.id = `task-${id}`;\n    task.innerHTML = `\n        <h3>${name}</h3>\n        <p>${description}</p>\n        <span class=\"material-icons\" onclick=\"toggleTaskCompleted(${id})\">check_circle</span>\n        <span class=\"material-icons\" onclick=\"removeTask(${id})\">delete</span>\n    `;\n    return task;\n}\n\nwindow.toggleTaskCompleted = function(id) {\n    const task = tasks.find(task => task.id === id);\n    task.completed = !task.completed;\n\n    if (task.completed) {\n        completedTasks.push(task);\n        tasks = tasks.filter(task => task.id !== id);\n    }\n\n    localStorage.setItem('tasks', JSON.stringify(tasks));\n    localStorage.setItem('completedTasks', JSON.stringify(completedTasks));\n\n    updateTaskList();\n}\n\nfunction removeTask(id) {\n    const taskIndex = tasks.findIndex(task => task.id === id);\n    tasks.splice(taskIndex, 1);\n\n    localStorage.setItem('tasks', JSON.stringify(tasks));\n\n    updateTaskList();\n}\n\nfunction updateTaskList() {\n  taskListContainer.innerHTML = '';\n  completedTasksContainer.innerHTML = '';\n\n  // Sort tasks based on priority\n  tasks.sort((a, b) => b.priority - a.priority);\n\n  tasks.forEach(task => {\n      const taskElement = createTask(task.name, task.description, task.id, task.completed);\n      taskListContainer.appendChild(taskElement);\n  });\n\n  completedTasks.forEach(task => {\n      const taskElement = createTask(task.name, task.description, task.id, task.completed);\n      completedTasksContainer.appendChild(taskElement);\n  });\n}\n\nfunction clearInputFields() {\n    taskNameInput.value = '';\n    taskDescriptionInput.value = '';\n}\n\n//# sourceURL=webpack://To-Do-List-App/./src/Scripts/index.js?");
 
 /***/ })
 
 /******/ 	});
 /************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/Scripts/index.js");
+/******/ 	var __webpack_exports__ = {};
+/******/ 	__webpack_modules__["./src/Scripts/index.js"]();
 /******/ 	
 /******/ })()
 ;

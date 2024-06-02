@@ -16,3 +16,23 @@ body {
   background-color: #303030;
   color: #f5f5f5;
 }
+
+.Task.low {
+  background-color: green;
+}
+
+.Task.medium {
+  background-color: yellow;
+}
+
+.Task.high {
+  background-color: red;
+}
+
+.Task.completed {
+  text-decoration: line-through;
+}
+
+#completed-tasks-container {
+  background-color: #f0f0f0;
+}
