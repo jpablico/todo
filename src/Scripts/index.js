@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         task.innerHTML = `
             <h3>${name}</h3>
             <p>${description}</p>
-            <span class="material-icons" onclick="toggleTaskCompleted(${id})">check_circle</span>
-            <span class="material-icons" onclick="removeTask(${id})">delete</span>
+            <span class="material-symbols-outlined" onclick="toggleTaskCompleted(${id})">check_circle</span>
+            <span class="material-symbols-outlined" onclick="removeTask(${id})">delete</span>
         `;
         return task;
     }
