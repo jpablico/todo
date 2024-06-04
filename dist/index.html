@@ -15,6 +15,14 @@
 			<h2>Completed Tasks</h2>
 		</div>
 
+		<div id="projects-container">
+			<!-- Projects will be dynamically added here -->
+		</div>
+	
+		<div id="todos-container">
+			<!-- Todos will be dynamically added here -->
+		</div>
+		
 		<div id="task-list-container">
 
 		</div>
@@ -28,11 +36,29 @@
 
 		<dialog id="Add-Task-Dialog">
 			<form id="Add-Task-Form">
-				<label for="Task-Name">Task Name</label>
+				<label for="Task-Name">Task Title</label>
 				<input type="text" id="Task-Name" required>
+		
 				<label for="Task-Description">Task Description</label>
 				<textarea id="Task-Description" required></textarea>
+		
+				<label for="Task-Due-Date">Due Date</label>
+				<input type="date" id="Task-Due-Date">
+		
+				<label for="Task-Priority">Priority</label>
+				<select id="Task-Priority">
+					<option value="low">Low</option>
+					<option value="medium">Medium</option>
+					<option value="high">High</option>
+				</select>
+		
+				<label for="Task-Notes">Notes</label>
+				<textarea id="Task-Notes"></textarea>
+	
 				<button type="submit" id="Submit-Task">Add Task</button>
 			</form>
+		</dialog>
+
+
 	</body>
 </html>
