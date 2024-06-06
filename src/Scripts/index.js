@@ -48,16 +48,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     function createTask(name, description, dueDate, priority, notes, checklist, id, completed) {
         const task = document.createElement('div');
-        task.className = `Task ${completed ? 'completed' : ''}`;
+        task.className = `Task ${completed ? 'completed' : ''} Task-Card`;
         task.id = `task-${id}`;
         task.innerHTML = `
-            <h3>${name}</h3>
-            <p>${description}</p>
-            <p>Due Date: ${dueDate}</p>
-            <p>Priority: ${priority}</p>
-            <p>Notes: ${notes}</p>
-            <span class="material-symbols-outlined" onclick="toggleTaskCompleted(${id})">check_circle</span>
-            <span class="material-symbols-outlined" onclick="removeTask(${id})">delete</span>
+            <h3 class='Task-title-card'>${name}</h3>
+            <p class='Task-description-card'>${description}</p>
+            <p class='Task-DueDate-card'>Due Date: ${dueDate}</p>
+            <p class='Task-Priority-card'>Priority: <span class='Task-${priority}'>${priority}</span></p>
+            <p class='Task-Notes-card'>Notes: ${notes}</p>
+            <div class='Task-Buttons-card'>
+                <span class="material-symbols-outlined Task-Button" onclick="toggleTaskCompleted(${id})">check_circle</span>
+                <span class="material-symbols-outlined Task-Button-Delete" onclick="removeTask(${id})">delete</span>
+            </div>
         `;
         return task;
     }

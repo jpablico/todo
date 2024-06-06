@@ -38,16 +38,16 @@ body {
   cursor: pointer;
 }
 
-.Task.low {
-  background-color: green;
+.Task-low {
+  color: green !important;
 }
 
-.Task.medium {
-  background-color: yellow;
+.Task-medium {
+  color: yellow !important;
 }
 
-.Task.high {
-  background-color: red;
+.Task-high {
+  color: red !important;
 }
 
 .Task.completed {
@@ -55,7 +55,68 @@ body {
 }
 
 #completed-tasks-container {
-  background-color: #f0f0f0;
+  background-color: #242424;
+}
+
+.Task-Card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: #242424;
+}
+.Task-Card .Task-title-card {
+  font-size: 20px;
+}
+.Task-Card .Task-description-card {
+  font-size: 16px;
+}
+.Task-Card .Task-DueDate-card {
+  font-size: 14px;
+}
+.Task-Card .Task-Priority-card {
+  font-size: 14px;
+}
+.Task-Card .Task-Notes-card {
+  font-size: 14px;
+}
+.Task-Card .Task-Buttons-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+}
+.Task-Card .Task-Buttons-card .Task-Button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  background-color: #815bd8;
+  color: #f5f5f5;
+  padding: 0.3rem 0.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.Task-Card .Task-Buttons-card .Task-Button-Delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  background-color: #ff4d4d;
+  color: #f5f5f5;
+  padding: 0.3rem 0.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 #Add-Task-Dialog {

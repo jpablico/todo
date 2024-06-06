@@ -62,16 +62,16 @@ body {
 	}
 }
 
-  .Task.low {
-    background-color: green;
+  .Task-low {
+    color: green !important;
 }
 
-.Task.medium {
-    background-color: yellow;
+.Task-medium {
+    color: yellow !important;
 }
 
-.Task.high {
-    background-color: red;
+.Task-high {
+    color: red !important;
 }
 
 .Task.completed {
@@ -79,8 +79,68 @@ body {
 }
 
 #completed-tasks-container {
-    background-color: #f0f0f0;
+    background-color: $background-color;
 }
+
+.Task-Card {
+	@include flex(column, flex-start, flex-start);
+	gap: 8px;
+	width: 100%;
+	padding: 1rem;
+	border-radius: 5px;
+	background-color: $background-color;
+
+	.Task-title-card {
+		@include text-size($font-size-subtitle);
+	}
+
+	.Task-description-card {
+		@include text-size($font-size-text);
+	}
+
+	.Task-DueDate-card {
+		@include text-size($font-size-small);
+	}
+
+	.Task-Priority-card {
+		@include text-size($font-size-small);
+	}
+
+	.Task-Notes-card {
+		@include text-size($font-size-small);
+	}
+
+	.Task-Buttons-card {
+		@include flex(row, center, center);
+		width: 100%;
+		gap: 8px;
+
+		.Task-Button {
+			@include flex(row, center, center);
+			flex: 1;
+			background-color: $accent-color;
+			color: $font-color;
+			padding: 0.3rem .8rem;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		.Task-Button-Delete {
+			@include flex(row, center, center);
+			flex: 1;
+			background-color: $error-color;
+			color: $font-color;
+			padding: 0.3rem .8rem;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	
+
+	}
+}
+
 
 #Add-Task-Dialog {
 	margin: auto;
