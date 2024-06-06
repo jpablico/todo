@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const taskPriorityInput = document.getElementById('Task-Priority');
     const taskNotesInput = document.getElementById('Task-Notes');
     const submitTaskButton = document.getElementById('Submit-Task');
+    const cancelTaskButton = document.getElementById('Cancel-Task');
     const addTaskButton = document.getElementById('Add-Task');
 
     let taskIdCounter = 0;
@@ -16,9 +17,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     addTaskButton.addEventListener('click', showDialog);
     submitTaskButton.addEventListener('click', addTaskToList);
+    cancelTaskButton.addEventListener('click', closeDialog);
 
     function showDialog() {
         addTaskDialog.showModal();
+    }
+
+    function closeDialog() {
+        addTaskDialog.close();
     }
 
     function addTaskToList(event) {

@@ -15,6 +15,27 @@ body {
   align-items: flex-start;
   background-color: #303030;
   color: #f5f5f5;
+  padding: 1rem 2rem;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 0;
+}
+.header-container .header-title {
+  font-size: 24px;
+}
+.header-container #Add-Task {
+  background-color: #815bd8;
+  color: #f5f5f5;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .Task.low {
@@ -35,4 +56,56 @@ body {
 
 #completed-tasks-container {
   background-color: #f0f0f0;
+}
+
+#Add-Task-Dialog {
+  margin: auto;
+  border: none;
+  border-radius: 5px;
+  background-color: #815bd8;
+}
+#Add-Task-Dialog #Add-Task-Form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  padding: 1rem;
+}
+#Add-Task-Dialog #Add-Task-Form label[for=Task-Name], #Add-Task-Dialog #Add-Task-Form label[for=Task-Description], #Add-Task-Dialog #Add-Task-Form label[for=Task-Due-Date], #Add-Task-Dialog #Add-Task-Form label[for=Task-Priority], #Add-Task-Dialog #Add-Task-Form label[for=Task-Notes] {
+  width: 100%;
+  text-align: left;
+  color: #f5f5f5;
+}
+#Add-Task-Dialog #Add-Task-Form #Task-Name, #Add-Task-Dialog #Add-Task-Form #Task-Description, #Add-Task-Dialog #Add-Task-Form #Task-Due-Date, #Add-Task-Dialog #Add-Task-Form #Task-Priority, #Add-Task-Dialog #Add-Task-Form #Task-Notes {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+}
+#Add-Task-Dialog #Add-Task-Form .button-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+#Add-Task-Dialog #Add-Task-Form .button-wrapper #Submit-Task {
+  flex: 1;
+  background-color: #242424;
+  color: #f5f5f5;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#Add-Task-Dialog #Add-Task-Form .button-wrapper #Cancel-Task {
+  background-color: #ff4d4d;
+  color: #f5f5f5;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }

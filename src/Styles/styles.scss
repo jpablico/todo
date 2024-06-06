@@ -36,11 +36,31 @@ $font-size-small: 14px;
 	font-family: $primary-font;
   }
 
-  body {
+body {
 	@include flex(column, center, flex-start);
 	background-color: $background-color-main;
 	color: $font-color;
-  }
+	padding: 1rem 2rem;
+}
+
+.header-container {
+	@include flex(row, space-between, center);
+	width: 100%;
+	padding: 1rem 0;
+
+	.header-title {
+		@include text-size($font-size-title);
+	}
+
+	#Add-Task {
+		background-color: $accent-color;
+		color: $font-color;
+		padding: 0.5rem 1rem;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+}
 
   .Task.low {
     background-color: green;
@@ -60,4 +80,57 @@ $font-size-small: 14px;
 
 #completed-tasks-container {
     background-color: #f0f0f0;
+}
+
+#Add-Task-Dialog {
+	margin: auto;
+	border: none;
+	border-radius: 5px;
+	background-color: $accent-color;
+
+	#Add-Task-Form {
+		@include flex(column, center, flex-start);
+		gap: 8px;
+		width: 100%;
+		padding: 1rem;
+
+		label[for="Task-Name"], label[for="Task-Description"], label[for="Task-Due-Date"], label[for="Task-Priority"], label[for="Task-Notes"] {
+			width: 100%;
+			text-align: left;
+			color: $font-color;
+		}
+
+		#Task-Name, #Task-Description, #Task-Due-Date, #Task-Priority, #Task-Notes {
+			width: 100%;
+			padding: 0.5rem;
+			border: none;
+			border-radius: 5px;
+		}
+		
+		.button-wrapper {
+			@include flex(row, center, center);
+			gap: 8px;
+			width: 100%;
+
+			#Submit-Task {
+				flex: 1;
+				background-color: $background-color;
+				color: $font-color;
+				padding: 0.5rem 1rem;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+
+			#Cancel-Task {
+				background-color: $error-color;
+				color: $font-color;
+				padding: 0.5rem 1rem;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+		}
+
+	}
 }

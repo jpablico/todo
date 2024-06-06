@@ -4,16 +4,18 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-	<link rel="stylesheet" href="/dist/main.css">
+	<link rel="stylesheet" href="/dist/style.css">
 	<script src="/dist/main.js" defer></script>
 	<title>To-Do-App</title>
 </head>
 	<body>
-		<div id="Labels">
-			<h1>To-Do-App</h1>
-			<h2>Task List</h2>
-			<h2>Completed Tasks</h2>
-		</div>
+		<header class="header-container">
+			<h1 class="header-title">To-Do-App</h1>
+			<button id="Add-Task">Add Task</button>
+		</header>
+		<main class="main-container">
+
+		</main>
 
 		<div id="projects-container">
 			<!-- Projects will be dynamically added here -->
@@ -32,7 +34,7 @@
 		</div>
 
 
-		<button id="Add-Task">Add Task</button>
+		
 
 		<dialog id="Add-Task-Dialog">
 			<form id="Add-Task-Form">
@@ -54,11 +56,13 @@
 		
 				<label for="Task-Notes">Notes</label>
 				<textarea id="Task-Notes"></textarea>
-	
-				<button type="submit" id="Submit-Task">Add Task</button>
+				<div class="button-wrapper">
+					<button type="button" id="Cancel-Task">Cancel</button>
+					<button type="submit" id="Submit-Task">Add Task</button>
+				</div>
+				
 			</form>
 		</dialog>
-
 
 	</body>
 </html>
