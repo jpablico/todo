@@ -14,28 +14,29 @@
 			<button id="Add-Task">Add Task</button>
 		</header>
 		<main class="main-container">
-
+			
+			<div id="projects-list-container">
+				<h2>Projects</h2>
+				<div id="projects-container">
+					<!-- Projects will be dynamically added here -->
+				</div>
+			</div>
+			
+			<div id="todos-container">
+				<!-- Todos will be dynamically added here -->
+			</div>
+			
+			<div id="task-list-container">
+	
+			</div>
+	
+			<div id="completed-tasks-container">
+	
+			</div>
+	
 		</main>
 
-		<div id="projects-container">
-			<!-- Projects will be dynamically added here -->
-		</div>
-	
-		<div id="todos-container">
-			<!-- Todos will be dynamically added here -->
-		</div>
 		
-		<div id="task-list-container">
-
-		</div>
-
-		<div id="completed-tasks-container">
-
-		</div>
-
-
-		
-
 		<dialog id="Add-Task-Dialog">
 			<form id="Add-Task-Form">
 				<label for="Task-Name">Task Title</label>
@@ -60,7 +61,6 @@
 					<button type="button" id="Cancel-Task">Cancel</button>
 					<button type="submit" id="Submit-Task">Add Task</button>
 				</div>
-				
 			</form>
 		</dialog>
 
