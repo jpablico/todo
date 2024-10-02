@@ -74,6 +74,13 @@ body {
     color: red !important;
 }
 
+.main-container {
+	@include flex(column, center, flex-start);
+	gap: 8px;
+	width: 100%;
+	overflow: hidden;
+}
+
 .Task.completed {
     text-decoration: line-through;
 }

@@ -50,6 +50,16 @@ body {
   color: red !important;
 }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  overflow: hidden;
+}
+
 .Task.completed {
   text-decoration: line-through;
 }
