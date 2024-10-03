@@ -122,6 +122,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
     updateTaskList();
 });
+
 let projects = [];
 
 function createProject(name) {
